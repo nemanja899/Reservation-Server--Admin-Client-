@@ -17,7 +17,7 @@ import validation.Validator;
 public class LovackoDrustvoOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         LovackoDrustvo drustvo = (LovackoDrustvo) odk;
         Validator.startValidate().validateStringMinLength(drustvo.getName(), 6, "Ime drustva ne moze biti manje od 5 slova")
                 .validateStringMinLength(drustvo.getCounty(), 3, "Ime opstine ne moze biti manja od 3 slova")
@@ -26,7 +26,7 @@ public class LovackoDrustvoOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         LovackoDrustvo drustvo = (LovackoDrustvo) odk;
         Validator.startValidate().validateStringMinLength(drustvo.getName(), 6, "Ime drustva ne moze biti manje od 5 slova")
                 .validateStringMinLength(drustvo.getCounty(), 3, "Ime opstine ne moze biti manja od 3 slova")
@@ -35,7 +35,7 @@ public class LovackoDrustvoOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
          LovackoDrustvo drustvo = (LovackoDrustvo) odk;
         Validator.startValidate().validateNullObject(drustvo.getName(), "Ime Lovackog drustva nije inicijalizovano")
                 .throwIfInvalide();

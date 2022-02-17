@@ -7,6 +7,8 @@ package project.form.controller.cordinator;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -21,10 +23,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 import javax.swing.JToggleButton;
+import project.controller.Controller;
 import project.form.controller.ConfigDataBaseFormController;
 import project.form.controller.ConfigServerFormController;
 
 import project.form.design.MainForm;
+import project.server.communication.Communication;
 
 import project.server.thread.ServerThread;
 import utill.MyConstants;
@@ -51,6 +55,7 @@ public class MainFormControllerCordinator {
     private void setListeners() {
         menuItemsListeners();
         buttonListener();
+        exitListener();
     }
     
     public static MainFormControllerCordinator getInstance() {
@@ -155,6 +160,16 @@ public class MainFormControllerCordinator {
                 }
                 
             }
+        });
+    }
+
+    private void exitListener() {
+        frmMain.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                server.zatvoriSveKlijente();
+            }
+            
         });
     }
     

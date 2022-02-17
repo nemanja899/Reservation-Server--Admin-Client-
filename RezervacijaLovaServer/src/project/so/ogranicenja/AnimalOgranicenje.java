@@ -17,7 +17,7 @@ import validation.Validator;
 public class AnimalOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Animal animal = (Animal) odk;
         Validator.startValidate().validateStringMinLength(animal.getName(), 6, "Puno ime mora imati min 6 slova")
                 .validateStringMinLength(animal.getShortName(), 3, "Kratko ime mora imati min 3 slova")
@@ -26,7 +26,7 @@ public class AnimalOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Animal animal = (Animal) odk;
         Validator.startValidate().validateStringMinLength(animal.getName(), 6, "Puno ime mora imati min 6 slova")
                 .validateStringMinLength(animal.getShortName(), 3, "Kratko ime mora imati min 3 slova")
@@ -35,7 +35,7 @@ public class AnimalOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
          Animal animal = (Animal) odk;
         Validator.startValidate().validateNullObject(animal.getId(), "ID Divljaci nije inicijalizovan")
                 .throwIfInvalide();

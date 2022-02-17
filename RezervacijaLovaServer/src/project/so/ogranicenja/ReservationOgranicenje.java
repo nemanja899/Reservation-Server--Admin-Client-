@@ -21,7 +21,7 @@ import validation.Validator;
 public class ReservationOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Reservation r = null;
         Reservation reservation = (Reservation) odk;
         try {
@@ -54,7 +54,7 @@ public class ReservationOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Reservation reservation = (Reservation) odk;
         Validator.startValidate().validateNullObject(reservation.getSeason(), "Sezona mora biti uneta")
                 .validateNullObject(reservation.getDrustvo(), "Lovacko drustvo mora biti uneto")
@@ -63,7 +63,7 @@ public class ReservationOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
 
         Reservation reservation = (Reservation) odk;
         Validator.startValidate().validateNullObject(reservation.getId(), "ID mora biti unet!!")

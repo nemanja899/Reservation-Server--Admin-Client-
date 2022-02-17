@@ -26,7 +26,7 @@ import java.sql.Connection;
 public class PricesOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Prices p = (Prices) odk;
         Validator.startValidate().validateNullObject(p.getSeason(), "Sezona mora biti uneta")
                 .validateNullObject(p.getAnimal(), "Zivotinja mora biti izabrana")
@@ -38,7 +38,7 @@ public class PricesOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Prices p = (Prices) odk;
         try {
             Connection conn = DbConnectionPool.getInstance().getConnection();
@@ -60,7 +60,7 @@ public class PricesOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
         Prices p = (Prices) odk;
         Validator.startValidate().validateNullObject(p.getSeason(), "Sezona mora biti uneta")
                 .validateNullObject(p.getAnimal(), "Zivotinja mora biti izabrana")

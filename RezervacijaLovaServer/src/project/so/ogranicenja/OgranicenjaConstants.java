@@ -15,9 +15,9 @@ import java.lang.reflect.Method;
 public class OgranicenjaConstants {
     public static final String PACKAGE="project.so.ogranicenja.";
     public static final String OGRANICENJE="Ogranicenje";
-    public static final String ADD_OGRANICENJE="AddPrecondition";
-    public static final String UPDATE_OGRANICENJE="UpdatePrecondition";
-    public static final String DELETE_OGRANICENJE="DeletePrecondition";
+    public static final String ADD_OGRANICENJE="addPrecondition";
+    public static final String UPDATE_OGRANICENJE="updatePrecondition";
+    public static final String DELETE_OGRANICENJE="deletePrecondition";
     
     public static Method getMethod(String className,String CRUD) throws ClassNotFoundException, NoSuchMethodException{
         return Class.forName(CLASS_NAME(className)).getMethod(CRUD, GeneralDObject.class);

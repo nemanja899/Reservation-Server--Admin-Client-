@@ -25,7 +25,7 @@ import validation.Validator;
 public class PoreziOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Porezi porezi = (Porezi) odk;
         Validator.startValidate().validateBigDecimal(porezi.getPDV(), "Pdv mora biti veci od nule ")
                 .validateBigDecimal(porezi.getProvision(), "Provizija mora biti veca od nule ")
@@ -34,7 +34,7 @@ public class PoreziOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Porezi porezi = (Porezi) odk;
         try {
             Connection conn = DbConnectionPool.getInstance().getConnection();
@@ -53,7 +53,7 @@ public class PoreziOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
         Porezi porezi = (Porezi) odk;
         Validator.startValidate().validateSeasonString(porezi.getSeason())
                 .throwIfInvalide();

@@ -13,7 +13,7 @@ import validation.ValidationException;
  * @author User
  */
 public interface Ogranicenje {
-    void AddPrecondition(GeneralDObject odk) throws ValidationException;
-    void UpdatePrecondition(GeneralDObject odk) throws ValidationException;
-    void DeletePrecondition(GeneralDObject odk) throws ValidationException;
+    void addPrecondition(GeneralDObject odk) throws ValidationException;
+    void updatePrecondition(GeneralDObject odk) throws ValidationException;
+    void deletePrecondition(GeneralDObject odk) throws ValidationException;
 }

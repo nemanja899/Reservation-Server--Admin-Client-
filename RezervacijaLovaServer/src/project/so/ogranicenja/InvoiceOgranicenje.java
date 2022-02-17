@@ -21,7 +21,7 @@ public class InvoiceOgranicenje implements Ogranicenje{
    
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Invoice invoice=(Invoice) odk;
         if (!invoice.isObradjen()) {
             Validator.startValidate().validateNullObject(invoice.getReservation(), "Rezervacija mora biti izabrana")
@@ -42,7 +42,7 @@ public class InvoiceOgranicenje implements Ogranicenje{
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Invoice invoice=(Invoice) odk;
         if (!invoice.isObradjen()) {
             Validator.startValidate().validateNullObject(invoice.getReservation(), "Rezervacija mora biti izabrana")
@@ -62,7 +62,7 @@ public class InvoiceOgranicenje implements Ogranicenje{
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
         Invoice invoice=(Invoice) odk;
         if (invoice.isObradjen()) {
             throw new ValidationException("racun je obrajen ne moze da se obrise");

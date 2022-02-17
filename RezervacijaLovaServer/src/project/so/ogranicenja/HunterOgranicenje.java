@@ -17,7 +17,7 @@ import validation.Validator;
 public class HunterOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         Hunter hunter = (Hunter) odk;
         Validator.startValidate()
                 .validateStringMinLength(hunter.getpassportNo(), 6, "Broj u pasosu ne moze biti kraci od 6 karaktera")
@@ -27,7 +27,7 @@ public class HunterOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         Hunter hunter = (Hunter) odk;
         Validator.startValidate()
                 .validateStringMinLength(hunter.getpassportNo(), 6, "Broj u pasosu ne moze biti kraci od 6 karaktera")
@@ -37,7 +37,7 @@ public class HunterOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
         Hunter hunter = (Hunter) odk;
         Validator.startValidate()
                 .validateStringMinLength(hunter.getpassportNo(), 6, "Broj u pasosu ne moze biti kraci od 6 karaktera")

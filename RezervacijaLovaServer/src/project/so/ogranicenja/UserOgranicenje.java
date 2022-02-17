@@ -17,7 +17,7 @@ import validation.Validator;
 public class UserOgranicenje implements Ogranicenje {
 
     @Override
-    public void AddPrecondition(GeneralDObject odk) throws ValidationException {
+    public void addPrecondition(GeneralDObject odk) throws ValidationException {
         User user = (User) odk;
         Validator.startValidate().validateNullObject(user.getLovackoDrustvoid(), "Lovacko Drustvo mora biti izabrano")
                 .validateInputPattern(user.getEmail(), "^[a-zA-Z]+[a-zA-Z0-9]*@.{3,}$", "Email ne sme poceti brojem, mora sadrzati @ i nakon mora imati bar 3 slova")
@@ -28,7 +28,7 @@ public class UserOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void UpdatePrecondition(GeneralDObject odk) throws ValidationException {
+    public void updatePrecondition(GeneralDObject odk) throws ValidationException {
         User user = (User) odk;
         Validator.startValidate().validateNullObject(user.getLovackoDrustvoid(), "Lovacko Drustvo mora biti izabrano")
                 .validateInputPattern(user.getEmail(), "^[a-zA-Z]+[a-zA-Z0-9]*@.{3,}$", "Email ne sme poceti brojem, mora sadrzati @ i nakon mora imati bar 3 slova")
@@ -39,7 +39,7 @@ public class UserOgranicenje implements Ogranicenje {
     }
 
     @Override
-    public void DeletePrecondition(GeneralDObject odk) throws ValidationException {
+    public void deletePrecondition(GeneralDObject odk) throws ValidationException {
         User user = (User) odk;
         Validator.startValidate()
                 .validateInputPattern(user.getEmail(), "^[a-zA-Z]+[a-zA-Z0-9]*@.{3,}$", "Email ne sme poceti brojem, mora sadrzati @ i nakon mora imati bar 3 slova")
