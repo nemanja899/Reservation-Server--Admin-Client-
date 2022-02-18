@@ -15,16 +15,11 @@ import java.sql.SQLException;
  */
 public class DbConnectionFactory {
     private Connection conn;
-    private static DbConnectionFactory instance;
+   
     
-    private DbConnectionFactory(){
+    public DbConnectionFactory(){
     }
-    public static DbConnectionFactory getInstance(){
-        if(instance==null){
-            instance = new DbConnectionFactory();
-        }
-        return instance;
-    }
+  
     
     public Connection getConnection(String username,String password,String ur) throws SQLException{
          try {

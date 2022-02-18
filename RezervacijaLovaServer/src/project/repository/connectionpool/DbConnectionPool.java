@@ -51,8 +51,9 @@ public class DbConnectionPool extends Thread {
 
         for (int i = 20; i > 0; i--) {
             try {
-                Connection connectionClone = new ConnectionClone(DbConnectionFactory.getInstance().getConnection(username,password,url)).getConnection();
+                Connection connectionClone = new DbConnectionFactory().getConnection(username,password,url);
                 connectionPool.add(connectionClone);
+                System.out.println(connectionClone);
             } catch (SQLException ex) {
                 Logger.getLogger(DbConnectionPool.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -80,7 +81,7 @@ public class DbConnectionPool extends Thread {
         try {
             if (connectionPool.isEmpty()) {
 
-                return new ConnectionClone(DbConnectionFactory.getInstance().getConnection(username,password,url)).getConnection();
+                return new DbConnectionFactory().getConnection(username,password,url);
             }
 
         } catch (SQLException ex) {
