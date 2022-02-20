@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import project.form.components.decorator.IComponentFilter;
+import project.util.tablemodel.MyDefaultTableModel;
 import project.util.tablemodel.ReservationTableModel;
 
 /**
@@ -50,7 +51,15 @@ public class ReservationTableComponent extends javax.swing.JPanel implements ICo
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblViewReservation);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -78,14 +87,14 @@ private List<Reservation> reservations;
 
     @Override
     public void clear() {
-        ((DefaultTableModel)tblViewReservation.getModel()).setRowCount(0);
-       ((DefaultTableModel)tblViewReservation.getModel()).fireTableDataChanged();
+        ((MyDefaultTableModel)tblViewReservation.getModel()).setRowCount(0);
+       ((MyDefaultTableModel)tblViewReservation.getModel()).fireTableDataChanged();
     }
 
     @Override
     public void addItem(Reservation item) {
-       ((DefaultTableModel)tblViewReservation.getModel()).addRow(new Object[]{item.getDrustvo(),item.getHunter(),item.getSeason()});
-       ((DefaultTableModel)tblViewReservation.getModel()).fireTableDataChanged();
+       ((MyDefaultTableModel)tblViewReservation.getModel()).addRow(new Object[]{item.getId(),item.getDrustvo(),item.getHunter(),item.getSeason()});
+       ((MyDefaultTableModel)tblViewReservation.getModel()).fireTableDataChanged();
     }
 
     public static boolean Filter(Reservation reservation, String str) {

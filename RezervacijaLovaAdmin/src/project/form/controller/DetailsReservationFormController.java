@@ -13,9 +13,9 @@ import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import project.controller.Controller;
 import project.form.design.ViewDetailsReservationForm;
+import project.util.tablemodel.MyDefaultTableModel;
 
 /**
  *
@@ -25,7 +25,7 @@ public class DetailsReservationFormController {
 
     private ViewDetailsReservationForm frmDetailsreservation;
     private Reservation reservation;
-    private DefaultTableModel tableModel;
+    private MyDefaultTableModel tableModel;
 
     public DetailsReservationFormController(JDialog form, Reservation r) {
         frmDetailsreservation = new ViewDetailsReservationForm(form, true);
@@ -40,7 +40,7 @@ public class DetailsReservationFormController {
 
     private void prepareTable() {
         try {
-            tableModel = new DefaultTableModel(new String[]{"Ulovljena divljac","Broj ulova"}, 0);
+            tableModel = new MyDefaultTableModel(new String[]{"Ulovljena divljac","Broj ulova"}, 0);
             frmDetailsreservation.getTblUlovljenaDivljac().setModel(tableModel);
             List<InvoiceItem> invoiceItems= Controller.getInstance().getInvoiceItemsByReservation(reservation);
             System.out.println(invoiceItems);

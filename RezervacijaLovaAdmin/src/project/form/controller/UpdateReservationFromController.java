@@ -103,6 +103,9 @@ public class UpdateReservationFromController {
            
             if (reservations.isEmpty()) {
                 JOptionPane.showMessageDialog(frmReservationUpdate, "Nema rezervacija");
+                tableModel.setReservations(reservations);
+                frmReservationUpdate.getTblReservation().revalidate();
+                frmReservationUpdate.getTblReservation().repaint();
             } else {
                 tableModel.setReservations(reservations);
                 frmReservationUpdate.getTblReservation().revalidate();

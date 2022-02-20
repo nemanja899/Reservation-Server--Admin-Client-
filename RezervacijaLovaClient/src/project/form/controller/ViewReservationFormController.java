@@ -17,7 +17,6 @@ import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import javax.swing.table.DefaultTableModel;
 import project.controller.Controller;
 import project.form.components.decorator.SearchComponentDecorator;
 
@@ -25,6 +24,7 @@ import project.form.components.ReservationTableComponent;
 
 import project.form.design.ViewReservationForm;
 import project.util.FormMode;
+import project.util.tablemodel.MyDefaultTableModel;
 
 /**
  *
@@ -65,7 +65,7 @@ public class ViewReservationFormController {
     public void prepareTable() {
         try {
             List<Reservation> reservations = Controller.getInstance().getAllReservationsByDrustvoNoInvoice(season);
-            DefaultTableModel tableModel = setTableData(reservations);
+            MyDefaultTableModel tableModel = setTableData(reservations);
             reservationTable.getTblViewReservation().setModel(tableModel);
             reservationTable.setReservations(reservations);
         } catch (Exception e) {
@@ -75,8 +75,8 @@ public class ViewReservationFormController {
         
     }
     
-    public DefaultTableModel setTableData(List<Reservation> reservations) {
-        DefaultTableModel tableModel = new DefaultTableModel(new String[]{"ID", "Lovacko Drustvo", "Lovac", "Sezona"}, 0);
+    public MyDefaultTableModel setTableData(List<Reservation> reservations) {
+        MyDefaultTableModel tableModel = new MyDefaultTableModel(new String[]{"ID", "Lovacko Drustvo", "Lovac", "Sezona"}, 0);
         for (Reservation reservation : reservations) {
             if (reservation.getSeason().equals(season)) {
                 tableModel.addRow(new Object[]{reservation.getId(), reservation.getDrustvo(), reservation.getHunter(), reservation.getSeason()});
